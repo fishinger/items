@@ -1,0 +1,112 @@
+
+<h1>Time!!</h1>
+<div ng-controller='coursCtrl'>
+
+	<div class="section">
+		<input ng-model='text'>
+		<button ng-click='update()'>Обновить</button>
+
+		<header>
+			<div class="user">Пользователь: {{data.user}}</div>
+			<div>Пройдено уроков: {{data.courses.length}}</div>
+		</header>
+		<div class="control input-group">
+			<input type="text" class='form-control' ng-model='newcourse'>
+			<div class='input-group-btn'><button ng-click='addCourse()' class='btn'>добавить</button></div>
+			
+		</div>
+		<table class='table'>
+			<tr>
+				<th>Название</th>
+				<th></th>
+				<th>Статус</th>
+			</tr>
+			<tr ng-repeat='item in data.courses'>
+				<td>{{item.name}}</td>
+				<td><input type="checkbox" ng-model='item.check'></td>
+				<td style='{{setStyle(item.check)}}'>{{setStatus(item.check)}}</td>
+			</tr>
+		</table>
+	</div>
+	<div class="section">
+		<h2>Перебор свойств объекта</h2>
+		<p ng-repeat='item in data.courses'>
+			<span ng-repeat='(key, val) in item'>{{key}} : {{val}}, </span>
+		</p>
+	</div>
+	<div class="section">
+		<h2>Индекс итерации</h2>
+		<p ng-repeat='item in data.courses'>
+			{{$index + 1}}. {{item.name}}
+		</p>
+	</div>
+	<div class="section">
+		<h2>Четная/нечетная итерация</h2>
+		<p ng-repeat='item in data.courses' ng-class='$even ? "green" : "red"'>{{item.name}}</p>
+	</div>
+	<div class="section">
+		<h2>Первый/последний элемент итерации</h2>
+		<p ng-repeat='item in data.courses' ng-class='$last ? "red" : ""'>{{item.name}}</p>
+	</div>
+	<div class="section">
+		<h2>Начало и конец повторений</h2>
+		<span ng-repeat-start='item in data.courses'>{{item.name}}, </span>
+		<span>{{item.status}}</span>
+		<br ng-repeat-end>
+	</div>
+	<div class="section">
+		<h2>Селект</h2>
+		<script>
+			/*
+			item in data.courses - проходим по массиву
+			то, что слева это этого выражения записывается в видимую часть option
+			То, что справа - в значение value
+			*/
+		</script>
+		<select ng-model='select' ng-options='item.name for item in data.courses track by item.id'></select>
+		<p>select name: {{select.name}}</p>
+		<p>select val: {{select.id}}</p>
+	</div>
+	<div class="section">
+		<h2>Подключение разметки из другого файла</h2>
+		<div class="btn-group" role='group'>
+			<button class="btn btn-default" ng-click='showList()'>List</button>
+			<button class="btn btn-default" ng-click='showTable()'>Table</button>
+		</div>
+		<br><br>
+		<div ng-include src="url"></div>
+		<!-- Так подключается конкретный файл -->
+		<!-- <div ng-include src="'pages/view-list.html'"></div> -->
+	</div>
+	<div class="section">
+		<h2>Switch</h2>
+		<select ng-model='mod' ng-options='item.name for item in data.courses track by item.view'></select>
+		<br><br>
+		<div ng-switch on='mod.view'>
+			<div ng-switch-when='ul'>
+				<ul class='ul'>
+					<li ng-repeat='item in data.courses'>{{item.name}}, {{item.status}}</li>
+				</ul>
+			</div>
+			<div ng-switch-when='ol'>
+				<ol class='ol'>
+					<li ng-repeat='item in data.courses'>{{item.name}}, {{item.status}}</li>
+				</ol>
+			</div>
+			<div ng-switch-when='table'>
+				<table class='table'>
+					<tr>
+						<th>Name</th>
+						<th>Status</th>
+					</tr>
+					<tr ng-repeat='item in data.courses'>
+						<td>{{item.name}}</td>
+						<td>{{item.status}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+	
+</div>
+

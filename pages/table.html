@@ -1,0 +1,21 @@
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Price</th>
+		<th>Control</th>
+	</tr>
+	<tr ng-repeat='item in items'>
+		<td>{{item.name}}</td>
+		<td>{{item.price}}</td>
+		<td>
+			<div class="btn-group">
+				<button class='btn btn-xs btn-default' ng-click='editOrCreate(item)'>Edit</button>
+				<button class='btn btn-xs btn-default' ng-click='delete(item)'>Delete</button>
+			</div>
+		</td>
+	</tr>
+</table>
+<div class="btn-group">
+	<button class='btn btn-default' ng-click='editOrCreate()'>New</button>
+	<button class='btn btn-default' ng-click='refresh()'>Refresh</button>
+</div>

@@ -1,0 +1,46 @@
+<h1>Ajax</h1>
+<div class="section" ng-controller='ajaxCtrl'>
+	<h2>Плдучаем json</h2>
+	<button ng-click='getData()'>Вывести данные</button>
+	<table class='table'>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+		</tr>
+		<tr ng-repeat='item in items'>
+			<td>{{item.name}}</td>
+			<td>{{item.price}}</td>
+		</tr>
+	</table>
+	<h2>Получаем и отправляем данные xml, используя config</h2>
+	<div class="btn-group">
+		<button class='btn btn-default' ng-click='getXml()'>Вывести данные</button>
+		<button class='btn btn-default' ng-click='sendXml()'>Отправить данные</button>	
+	</div>
+	
+	<table class='table'>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+		</tr>
+		<tr ng-repeat='item in xml'>
+			<td>{{item.name}}</td>
+			<td>{{item.price}}</td>
+		</tr>
+	</table>
+	<h2>Получаем xml данные по дефолтному конфигу</h2>
+	<div class="btn-group">
+		<button class='btn btn-default' ng-click='getDefaultXml()'>Вывести данные</button>
+	</div>
+	
+	<table class='table'>
+		<tr>
+			<th>Name</th>
+			<th>Price</th>
+		</tr>
+		<tr ng-repeat='item in defaultxml'>
+			<td>{{item.name}}</td>
+			<td>{{item.price}}</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,70 @@
+<h1>Controller</h1>
+<h2>Наследование от родительского к доченяму</h2>
+<div class="section" ng-controller='baseCtrl'>
+	<h4>{{message}}</h4>
+	<button ng-click='getMessage()'>Получить</button>
+	<br><hr>
+	<div ng-controller='childCtrl'>
+		<h4>{{message}}</h4>
+		<button ng-click='getMessage()'>Получить</button>
+		<button ng-click='getMessage1()'>Получить 1</button>
+	</div>
+</div>
+
+<h2>То же наследование, только используем объектную привязку</h2>
+<div class="section" ng-controller='baseCtrl2'>
+	<h4>{{message.time}}</h4>
+	<button ng-click='getMessage()'>Получить</button>
+	<br><hr>
+	<div ng-controller='childCtrl2'>
+		<h4>{{message.time}}</h4>
+		<button ng-click='getMessage()'>Получить</button>
+		<button ng-click='getMessage1()'>Получить 1</button>
+	</div>
+</div>
+<h2>Передача данных от родительского scope к дочерним, через событие ($broadcast)</h2>
+<div class="section">
+	<div ng-controller='senderCtrl'>
+		<input type="text" ng-model='valInput'><br>
+		<button ng-click='sendMessage()'>Отправить</button>
+	</div>
+	<div ng-controller='receverCtrl'>
+		Resever 1: {{info}}
+	</div>
+	<div ng-controller='receverCtrl'>
+		Resever 2: {{info}}
+	</div>
+</div>
+<h2>Передача данных от дочерняго scope к родительским, через событие ($emit)</h2>
+<div class="section">
+	<div ng-controller='emitCtrl'>
+		Ctrl 1: {{info}} <br><hr>
+		<div ng-controller='emitCtrl'>
+			Ctrl 1: {{info}} <br><hr>
+			<div ng-controller='emitCtrl'>
+				Ctrl 1: {{info}} <br>
+				<input type="text" ng-model='valInput'>
+				<button ng-click='updateMessage()'>Отправить</button>
+			</div>
+		</div>
+	</div>
+</div>
+<h2>Digest цикл</h2>
+<div class="section">
+	<p>После каждого обновления данных, происходящих с использованием angular сервисов, запускается digest цикл. Он может не запуститься при использовании стандартных js функций. Например, setInterval.</p>
+	<div ng-controller='digestCtrl'>{{counter}} <button ng-click='addCount(1)'>+1</button></div>
+</div>
+<h2>Интеграция angular с другими библиотеками и самописным кодом</h2>
+<div class="section">
+	<div>
+		<button class="add-count">Увеличить</button>
+	</div> <br><hr><br>
+	<div ng-controller='watchCtrl' id='angularRegion'>
+		<div class="checkbox">
+			<label>
+				<input type="checkbox" ng-model='disabled' required> Активность кнопки
+			</label>
+	  	</div>
+		Счетчик: {{count}}
+	</div>
+</div>

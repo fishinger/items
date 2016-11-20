@@ -1,0 +1,195 @@
+<h1>Filter</h1>
+<!--https://code.angularjs.org/1.0.3/i18n/ стабильные версии файлов локализации-->
+<h2>Ограничитель количества вывода</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<div>
+		Count: {{users.length}}
+	</div>
+	<div>
+		<select ng-model='valSelect' ng-options='item for item in usersRange'></select>
+	</div>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+		</tr>
+		<tr ng-repeat='user in users | limitTo: valSelect'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Выводим людей с голубыми глазами</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | filter: {eyeColor: "blue"}'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Выводим людей с голубыми глазами либо в возрасте 20</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | filter: filterUser'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Выводим сначала людей в возрасте меньше 30, потом остальных, отсортированных по балансу</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | orderBy: smallAge'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Выводим сначала людей в возрасте меньше 30, потом остальных, отсортированных по балансу. B все это сортируем по возрастанию баланса</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | orderBy: [smallAge, "balance"]'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Тоже, что и в прошлом примере, только выводим первые три записи</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | orderBy: [smallAge, "balance"] | limitTo : 3'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Пользовательский фильтр перевода имени в разные регистры</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | limitTo : 5'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name | changeCase: true}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Отрезаем первые 3 элемента с помощью пользовательского фильтра</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | skipItem : 3'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
+<h2>Берем 3 элемента начиная с 4 (используя сервис $filter, позволяющий получать доступ к имеющимся фильтрам)</h2>
+<div class="section" ng-controller='filterCtrl'>
+	<table class="table">
+		<tr>
+			<th>Index</th>
+			<th>Name</th>
+			<th>Age</th>
+			<th>balance</th>
+			<th>registered</th>
+			<th>eyeColor</th>
+		</tr>
+		<tr ng-repeat='user in users | take : 4 : 3'>
+			<td>Item {{user.index}}</td>
+			<td>{{user.name}}</td>
+			<td>{{user.age}}</td>
+			<td>{{user.balance | currency}}</td>
+			<td>{{getExpryDate(user.endActive) | date: "dd MMM yyyy"}}</td>
+			<td>{{user.eyeColor}}</td>
+		</tr>
+	</table>
+</div>
