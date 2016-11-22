@@ -22,9 +22,11 @@ angular.module('app')
 
 	$scope.update = function(item) {
 		item.$save().then(function(data) {
-			var item = _.findWhere($scope.items, {id: data.id});
-			for(var key in item) {
-				item.key = data.key;
+			for(var i = 0; i < $scope.items.length; i++) {
+				if(data.id == $scope.items[i].id) {
+					$scope.items[i] = data;
+					break;
+				}
 			}
 			$scope.view = 'table';
 		});
