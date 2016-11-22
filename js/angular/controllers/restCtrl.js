@@ -1,5 +1,5 @@
 angular.module('app')
-.constant('baseUrl', 'https://items-fishinger.c9users.io:8081/items')
+.constant('baseUrl', 'https://items-fishinger.c9users.io:8081/items/')
 .controller('restCtrl', ['$scope', '$http', 'baseUrl', '$resource', function($scope, $http, baseUrl, $resource) {
 	$scope.view = 'table';
 	$scope.itemResource = $resource(baseUrl + ':id', {id: '@id'});
