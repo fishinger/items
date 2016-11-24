@@ -14,6 +14,7 @@
     "gulp-sass": "^2.2.0"
   },
   "devDependencies": {
-    "dpd-js-sdk": "0.0.7"
+    "dpd-js-sdk": "0.0.7",
+    "http": "0.0.0"
   }
 }
