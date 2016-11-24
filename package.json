@@ -15,6 +15,9 @@
   },
   "devDependencies": {
     "dpd-js-sdk": "0.0.7",
-    "http": "0.0.0"
+    "finalhandler": "^0.5.1",
+    "http": "0.0.0",
+    "serve-static": "^1.11.1",
+    "static-server": "^2.0.3"
   }
 }
