@@ -1,4 +1,5 @@
 var StaticServer = require('static-server');
+//var dpd = require('dpd-js-sdk')('http://92.53.119.39:8090/', 'http://92.53.119.39:2403/items' );
 var server = new StaticServer({
   rootPath: '.',            // required, the root of the server file tree 
   name: 'my-http-server',   // optional, will set "X-Powered-by" HTTP header 
@@ -11,6 +12,11 @@ var server = new StaticServer({
     notFound: '404.html'    // optional, defaults to undefined 
   }
 });
+
+// dpd.on('items:changed', function(el) {
+//   fetch();
+//   console.log('aaaaaaaaa')
+// });
  
 server.start(function () {
   console.log('Server listening to', server.port);
@@ -36,7 +42,3 @@ server.on('response', function (req, res, err, stat, file) {
  
   // NOTE: the response has already been sent at this point 
 });
-dpd.on('items:changed', function(el) {
-  fetch();
-  console.log('aaaaaaaaa')
-})
