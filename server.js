@@ -36,3 +36,7 @@ server.on('response', function (req, res, err, stat, file) {
  
   // NOTE: the response has already been sent at this point 
 });
+dpd.on('items:changed', function(el) {
+  fetch();
+  console.log('aaaaaaaaa')
+})
