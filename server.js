@@ -1,3 +1,13 @@
+### BEGIN INIT INFO
+# Provides:          dovecot
+# Required-Start:    $local_fs $network
+# Required-Stop:     $local_fs
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: dovecot
+# Description:       dovecot pop & imap daemon
+### END INIT INFO
+
 var StaticServer = require('static-server');
 //var dpd = require('dpd-js-sdk')('http://92.53.119.39:8090/', 'http://92.53.119.39:2403/items' );
 var server = new StaticServer({
