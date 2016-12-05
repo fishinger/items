@@ -1,5 +1,4 @@
 angular.module('app')
-.constant('baseUrl', 'http://92.53.119.39:2403/items/')
 .controller('restCtrl', ['$scope', '$http', 'baseUrl', '$resource', function($scope, $http, baseUrl, $resource) {
 	$scope.view = 'table';
 	$scope.itemResource = $resource(baseUrl + ':id', {id: '@id'});
