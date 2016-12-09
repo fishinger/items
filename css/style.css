@@ -447,6 +447,21 @@ a:focus {
   .container__small {
     padding: 0 90px; }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0; }
+  table th, table td {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;
+    border-top: 1px solid #ddd;
+    text-align: left; }
+  table th {
+    font-weight: bold;
+    border-top: 0;
+    vertical-align: bottom; }
+
 .section {
   margin: 20px 0;
   padding: 0 0 20px;

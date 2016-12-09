@@ -30,3 +30,23 @@
 		padding: 0 90px;
 	}
 }
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+    border-spacing: 0;
+    th, td {
+    	padding: 8px;
+	    line-height: 1.42857143;
+	    vertical-align: top;
+	    border-top: 1px solid #ddd;
+	    text-align: left;
+    }
+	th {
+		font-weight: bold;
+		border-top: 0;
+		vertical-align: bottom;
+	}
+
+
+}
