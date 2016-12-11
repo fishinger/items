@@ -26,6 +26,12 @@
 
 	<!-- Angular Material Library -->
 	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+	<script type="text/javascript" src='js/youtube.js'></script>
+
+	<!--lightgallery-->
+	<script type="text/javascript" src='js/lightgallery/lightgallery.min.js'></script>
+	<script type="text/javascript" src='js/lightgallery/lg-thumbnail.min.js'></script>
+	<script type="text/javascript" src='js/lightgallery/lg-fullscreen.min.js'></script>
 	<!--[if lt IE 9]>
 	<script type="text/javascript" src="js/html5.js"></script>
 	<![endif]-->
@@ -34,6 +40,11 @@
 	<![endif]-->
 </head>
 <body ng-controller='mainCtrl' ng-cloak>
+	<div class="mobile-top">
+	<md-button class="md-icon-button" aria-label="menu" ng-click='toggleAside()'>
+		<md-icon md-svg-icon="img/icons/menu.svg" class='fill-white'></md-icon>
+	</md-button>
+	</div>
 	<div class="aside" ng-click='toggleAside()' ng-class="{'aside--active': statusAside}">
 		<a href="#" class="logo aside__logo">
 			<img src="img/official/logo.jpg" alt="" class="logo__img">

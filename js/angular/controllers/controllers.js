@@ -265,7 +265,7 @@ var users = [
     "endActive": 26
   }
 ]
-app.controller('mainCtrl', ["$scope", function($scope){
+app.controller('mainCtrl', ["$scope", '$timeout', function($scope, $timeout){
 	// $scope.message = model;
 	// $scope.update = function() {
 	// 	$scope.message = $scope.text;
@@ -278,6 +278,9 @@ app.controller('mainCtrl', ["$scope", function($scope){
 		if($scope.statusAside) {
 			$scope.statusAside = false;
 		}
+	}
+	$scope.playVideo = function() {
+        
 	}
 }]);
 app.controller('coursCtrl', ["$scope", function($scope){

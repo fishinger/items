@@ -1,9 +1,8 @@
 @import "variables";
 .all {
 	padding-left: $aside-width;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+	position: relative;
+	background: rgb(244, 244, 244);
 	&:after{
 		content: '';
 		position: absolute;
@@ -22,6 +21,9 @@
 			opacity: 1;
 			visibility: visible;
 		}
+	}
+	@media screen and($xs){
+		padding-left: 0;
 	}
 }
 .container {

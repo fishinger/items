@@ -7,16 +7,21 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	&:focus {
+		outline: none;
+	}
 }
 
 html{
 }
 body {
 	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 body {
-	//font-size: 62.5%;
 	font-size: 16px;
 	font-family: $philos;
 	font-weight: 400;
@@ -24,7 +29,7 @@ body {
 	overflow-x: hidden;
 	display: flex;
 	flex-direction: column;
-	//background-color: #0079BF;
+	background: rgb(244, 244, 244);
 }
 .container{
 	min-width: 280px;
