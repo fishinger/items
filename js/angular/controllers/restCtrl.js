@@ -1,5 +1,4 @@
 angular.module('app')
-.constant('baseUrl', 'http://localhost:2403/items/')
 .controller('restCtrl', ['$scope', '$http', 'baseUrl', '$resource', function($scope, $http, baseUrl, $resource) {
 	$scope.view = 'table';
 	$scope.itemResource = $resource(baseUrl + ':id', {id: '@id'});
@@ -22,9 +21,11 @@ angular.module('app')
 
 	$scope.update = function(item) {
 		item.$save().then(function(data) {
-			var item = _.findWhere($scope.items, {id: data.id});
-			for(var key in item) {
-				item.key = data.key;
+			for(var i = 0; i < $scope.items.length; i++) {
+				if(data.id == $scope.items[i].id) {
+					$scope.items[i] = data;
+					break;
+				}
 			}
 			$scope.view = 'table';
 		});

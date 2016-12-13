@@ -10,3 +10,9 @@
 	<button class='btn btn-default' ng-click='saveOrEdit(editItem)'>Save</button>
 	<button class='btn btn-default' ng-click='cansel()'>Cansel</button>
 </div>
+
+<ul>
+	<li ng-repeat='elem in items'><a href="" ui-sref='edit.item({item: elem})'>{{elem}}</a></li>
+</ul>
+
+<div ui-view></div>

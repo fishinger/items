@@ -2,7 +2,8 @@
 var app = angular.module('app', [
 		'ui.router',
 		'ngSanitize',
-		'ngResource'
+		'ngResource',
+		'ngMaterial'
 	]);
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	$urlRouterProvider.otherwise('/');
@@ -11,13 +12,27 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		requireBase: false
 	});
 	$stateProvider
-		.state('main', {
+		.state('home', {
 			url: '/',
-			templateUrl: '/pages/rest.html'
+			templateUrl: 'pages/main.html'
 		})
-		.state('validate', {
-			url: '/validate',
-			templateUrl: '/pages/sanitaze.html'
+		.state('rest', {
+			url: '/rest',
+			templateUrl: 'pages/rest.html'
+		})
+		.state('edit', {
+			url: '/edit',
+			templateUrl: 'pages/edit.html',
+			controller: function($scope) {
+				$scope.items = ['item1', 'item2', 'item3'];
+			}
+		})
+		.state('edit.item', {
+			url: '/:item',
+			templateUrl: 'pages/edit.item.html',
+			controller: function($scope, $stateParams) {
+				$scope.name = $stateParams.item;
+			}
 		})
 })
 var course = {
@@ -250,11 +265,23 @@ var users = [
     "endActive": 26
   }
 ]
-app.controller('mainCtrl', ["$scope", function($scope){
+app.controller('mainCtrl', ["$scope", '$timeout', function($scope, $timeout){
 	// $scope.message = model;
 	// $scope.update = function() {
 	// 	$scope.message = $scope.text;
 	// }
+	$scope.statusAside = false;
+	$scope.toggleAside = function() {
+		$scope.statusAside = !$scope.statusAside;
+	}
+	$scope.closeAside = function() {
+		if($scope.statusAside) {
+			$scope.statusAside = false;
+		}
+	}
+	$scope.playVideo = function() {
+        
+	}
 }]);
 app.controller('coursCtrl', ["$scope", function($scope){
 	$scope.data = course;
@@ -600,4 +627,3 @@ app.controller('ajaxCtrl', ['$scope', '$http', function($scope, $http) {
 	// 	})
 	// }
 }])
-

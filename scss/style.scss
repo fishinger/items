@@ -1,9 +1,11 @@
 
 @import "normalize";
-@import "bootstrap.min";
-@import "bootstrap-theme.min";
+// @import "bootstrap.min";
+// @import "bootstrap-theme.min";
 @import "variables";
 @import "base";
+@import "layout";
 @import "mixins";
 @import "layers";
+@import "lightgallery/lightgallery";
 

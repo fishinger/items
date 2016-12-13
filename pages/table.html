@@ -9,13 +9,13 @@
 		<td>{{item.price}}</td>
 		<td>
 			<div class="btn-group">
-				<button class='btn btn-xs btn-default' ng-click='editOrCreate(item)'>Edit</button>
-				<button class='btn btn-xs btn-default' ng-click='delete(item)'>Delete</button>
+				<md-button class="md-raised" ng-click='editOrCreate(item)'>Edit</md-button>
+				<md-button class="md-raised" ng-click='delete(item)'>Delete</md-button>
 			</div>
 		</td>
 	</tr>
 </table>
 <div class="btn-group">
-	<button class='btn btn-default' ng-click='editOrCreate()'>New</button>
-	<button class='btn btn-default' ng-click='refresh()'>Refresh</button>
+	<md-button class='md-raised' ng-click='editOrCreate()'>New</md-button>
+	<md-button class='md-raised' ng-click='refresh()'>Refresh</md-button>
 </div>
