@@ -7,10 +7,10 @@ var app = angular.module('app', [
 	]);
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	$urlRouterProvider.otherwise('/');
-	$locationProvider.html5Mode({
-		enabled: true,
-		requireBase: false
-	});
+	// $locationProvider.html5Mode({
+	// 	enabled: true,
+	// 	requireBase: false
+	// });
 	$stateProvider
 		.state('home', {
 			url: '/',
@@ -19,6 +19,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 		.state('rest', {
 			url: '/rest',
 			templateUrl: 'pages/rest.html'
+		})
+		.state('date', {
+			url: '/date',
+			templateUrl: 'pages/date.html'
 		})
 		.state('edit', {
 			url: '/edit',
@@ -282,7 +286,40 @@ app.controller('mainCtrl', ["$scope", '$timeout', function($scope, $timeout){
 	$scope.playVideo = function() {
         
 	}
+	$scope.day = new Date();
+	$scope.showInfo = function(date) {
+		$scope.getInfo = getActiveUser(date, date.getDate());
+	}
+	$scope.showInfo($scope.day);
+	
 }]);
+function getActiveUser(date, day) {
+	var dayUser = {},
+		dayActive = date ? date : new Date(),
+		dayStart = new Date(2016, 11, 12);
+
+	if(day % 2) {
+		dayUser.name = 'Павел';
+	} else {
+		dayUser.name = 'Ксения';
+	}
+	if(day == 1) {
+		dayUser.name = 'Ксения';
+		dayUser.number = 20;
+		return dayUser;
+	}
+
+	if(day > 1 && day < 7) {
+		dayStart = new Date(2017, 0, 1);
+		if(day % 2) {
+			dayUser.name = 'Ксения';
+		} else {
+			dayUser.name = 'Павел';
+		}
+	}
+	dayUser.number = dayActive.getDate() - dayStart.getDate();
+	return dayUser;
+}
 app.controller('coursCtrl', ["$scope", function($scope){
 	$scope.data = course;
 	$scope.addCourse = function() {

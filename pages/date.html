@@ -1,0 +1,8 @@
+<md-content layout-padding>
+<h1>График чтения</h1>
+<div layout-gt-xs="row">
+	<div flex-gt-xs>
+		<h3>{{getInfo.name}}, {{getInfo.number}}</h3> <br>
+		<md-calendar ng-model="psalomDay" ng-change='showInfo(psalomDay)'></md-calendar>
+	</div>
+</md-content>
