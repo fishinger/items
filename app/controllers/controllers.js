@@ -14,26 +14,26 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	$stateProvider
 		.state('home', {
 			url: '/',
-			templateUrl: 'pages/main.html'
+			templateUrl: 'app/views/main.html'
 		})
 		.state('rest', {
 			url: '/rest',
-			templateUrl: 'pages/rest.html'
+			templateUrl: 'app/views/rest.html'
 		})
 		.state('date', {
 			url: '/date',
-			templateUrl: 'pages/date.html'
+			templateUrl: 'app/views/date.html'
 		})
 		.state('edit', {
 			url: '/edit',
-			templateUrl: 'pages/edit.html',
+			templateUrl: 'app/views/edit.html',
 			controller: function($scope) {
 				$scope.items = ['item1', 'item2', 'item3'];
 			}
 		})
 		.state('edit.item', {
 			url: '/:item',
-			templateUrl: 'pages/edit.item.html',
+			templateUrl: 'app/views/edit.item.html',
 			controller: function($scope, $stateParams) {
 				$scope.name = $stateParams.item;
 			}

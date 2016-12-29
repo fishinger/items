@@ -8,16 +8,19 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.0",
-    "gulp-sass": "^2.2.0"
-  },
   "devDependencies": {
     "dpd-js-sdk": "0.0.7",
     "finalhandler": "^0.5.1",
     "http": "0.0.0",
     "serve-static": "^1.11.1",
-    "static-server": "^2.0.3"
+    "static-server": "^2.0.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^2.0.0",
+    "pump": "^1.0.1"
   }
 }
