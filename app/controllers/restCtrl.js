@@ -38,7 +38,9 @@ angular.module('app')
 			$scope.items.push(data);
 			$scope.view = 'table';
 			console.log(data);
-		})
+        }, function(data) {
+            console.log(data)
+        })
 	}
 
 	$scope.delete = function(item) {
@@ -54,4 +56,5 @@ angular.module('app')
 
 
 	$scope.refresh();
+    globalItem = 'item';
 }])
