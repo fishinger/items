@@ -5,6 +5,14 @@ var app = angular.module('app', [
 		'ngResource',
 		'ngMaterial'
 	]);
+//app.value('dpdConfig',['items']);
+// app.value('dpdConfig', { 
+//     collections: ['categories'], 
+//     serverRoot: 'localhost', // optional, defaults to same server
+//     socketOptions: { reconnectionDelayMax: 3000 }, // optional socket io additional configuration
+//     useSocketIo: true, // optional, defaults to false
+//     noCache: true // optional, defaults to false (false means that caching is enabled, true means it disabled)
+// });
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	$urlRouterProvider.otherwise('/');
 	// $locationProvider.html5Mode({
@@ -291,7 +299,6 @@ app.controller('mainCtrl', ["$scope", '$timeout', function($scope, $timeout){
 		$scope.getInfo = getActiveUser(date, date.getDate());
 	}
 	$scope.showInfo($scope.day);
-	
 }]);
 function getActiveUser(date, day) {
 	var dayUser = {},
