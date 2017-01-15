@@ -28,6 +28,10 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			url: '/rest',
 			templateUrl: 'app/views/rest.html'
 		})
+		.state('login', {
+			url: '/login',
+			templateUrl: 'app/views/login.html'
+		})
 		.state('date', {
 			url: '/date',
 			templateUrl: 'app/views/date.html'
@@ -47,6 +51,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			}
 		})
 })
+
 var course = {
 	user: 'Pavel',
 	courses: [
@@ -299,7 +304,22 @@ app.controller('mainCtrl', ["$scope", '$timeout', function($scope, $timeout){
 		$scope.getInfo = getActiveUser(date, date.getDate());
 	}
 	$scope.showInfo($scope.day);
+	$scope.logout = function () {
+		dpd.users.logout();
+		console.log('logout!');
+	}
 }]);
+app.controller('loginCtrl', ['$scope', function($scope) {
+	$scope.login = function (user) {
+		console.log(dpd.users.me(console.log))
+		dpd.users.login({
+			username: user.username,
+			password: ''+user.password
+		}, function(res, err) {
+			
+		})
+	}
+}])
 function getActiveUser(date, day) {
 	var dayUser = {},
 		dayActive = date ? date : new Date(),

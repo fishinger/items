@@ -57,4 +57,17 @@ angular.module('app')
 
 	$scope.refresh();
     globalItem = 'item';
+
+	dpd.items.on('create', function(message) {
+		console.log('create!!!!!!!!!');
+		$scope.refresh();
+	});
+	dpd.items.on('changed', function(message) {
+		console.log('changed!!!!!!!!!');
+		$scope.refresh();
+	});
+	dpd.items.on('delete', function(message) {
+		console.log('delete!!!!!!!!!');
+		$scope.refresh();
+	});
 }])

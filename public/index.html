@@ -11,6 +11,8 @@
 	<!-- Angular Material style sheet -->
 	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="dpd.js"></script>
 </head>
 <body ng-controller='mainCtrl' ng-cloak>
 	<div class="mobile-top">
@@ -27,6 +29,8 @@
 			<div class="nav__item nc2" ui-sref-active='active'><a href="" ui-sref='rest' class="nav__name">Rest</a></div>
 			<div class="nav__item nc3" ui-sref-active='active'><a href="" ui-sref='edit' class="nav__name">Edit</a></div>
 			<div class="nav__item nc4" ui-sref-active='active'><a href="" ui-sref='date' class="nav__name">Date</a></div>
+			<div class="nav__item nc4" ui-sref-active='active'><a href="" ui-sref='login' class="nav__name">Login</a></div>
+			<div class="nav__item nc4" ui-sref-active='active'><span class="nav__name" ng-click="logout()">Logout</span></div>
 		</div>
 		<div class="aside__contacts">follow us</div>
 	</div>
@@ -34,7 +38,6 @@
 
 
 	<script type="text/javascript" src="assets/_plugins-all.min.js"></script>
-	<script type="text/javascript" src="assets/js/dpd.js"></script>
 	<script type="text/javascript" src="app/controllers/controllers.js"></script>
     <script type="text/javascript" src="assets/js/url/url.js"></script>
 	<script type="text/javascript" src="app/controllers/restCtrl.js"></script>
