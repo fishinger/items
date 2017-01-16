@@ -316,7 +316,11 @@ app.controller('loginCtrl', ['$scope', function($scope) {
 			username: user.username,
 			password: ''+user.password
 		}, function(res, err) {
-			
+			if(err) {
+				return alert('Неверный логин или пароль')
+			}
+			console.log('Login success!');
+			console.log(res);
 		})
 	}
 }])
