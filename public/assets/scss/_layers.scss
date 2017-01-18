@@ -5,33 +5,15 @@
 	border-bottom: 1px solid gray;
 }
 
-.green {
-	color: green;
-}
-.red {
-	color: red;
-}
-.gray {
-	color: gray;
-}
-
-.ul {
-	list-style-type: circle;
-}
-
-.ol {
-	list-style-type: decimal;
-}
-
 form {
 	.ng-pristine {
-		border: 1px solid gray;
+		//border: 1px solid gray;
 	}
 	.ng-dirty.ng-invalid {
-		background: red;
+		//background: red;
 	}
 	.ng-dirty.ng-valid {
-		background: green;
+		//background: green;
 	}
 }
 

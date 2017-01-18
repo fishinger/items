@@ -10,7 +10,7 @@ var concat = require('gulp-concat'),
     pump = require('pump');
 
 gulp.task('scss', function () {
-    gulp.src('_scss/styles.scss')
+    gulp.src('public/assets/scss/style.scss')
         .pipe(sourcemaps.init())
         .pipe(sass({outputStyle: 'compressed'})).on('error', sass.logError)
         .pipe(autoprefixer({
@@ -19,25 +19,25 @@ gulp.task('scss', function () {
         }))
         .pipe(rename({suffix: '.min'}))
         .pipe(sourcemaps.write('../scss-maps/'))
-        .pipe(gulp.dest('css/'));
+        .pipe(gulp.dest('public/assets/css/'));
 });
 
 var pluginsJS = [
-    'assets/js/jquery-1.9.1.min.js',
-    'assets/js/angular.min.js',
-    'assets/js/angular-locale_ru-ru.js',
-    'assets/js/angular-ui-router.min.js',
-    'assets/js/sanitize.js',
-    'assets/js/lodash.min.js',
-    'assets/js/angular-resource.min.js',
-    'assets/js/angular-animate.min.js',
-    'assets/js/angular-aria.min.js',
-    'assets/js/angular-messages.min.js',
-    'assets/js/angular-material.min.js',
-    'assets/js/lightgallery/lightgallery.min.js',
-    'assets/js/lightgallery/lg-thumbnail.min.js',
-    'assets/js/lightgallery/lg-fullscreen.min.js',
-    'assets/js/youtube.js'
+    'public/assets/js/jquery-1.9.1.min.js',
+    'public/assets/js/angular.min.js',
+    'public/assets/js/angular-locale_ru-ru.js',
+    'public/assets/js/angular-ui-router.min.js',
+    'public/assets/js/sanitize.js',
+    'public/assets/js/lodash.min.js',
+    'public/assets/js/angular-resource.min.js',
+    'public/assets/js/angular-animate.min.js',
+    'public/assets/js/angular-aria.min.js',
+    'public/assets/js/angular-messages.min.js',
+    'public/assets/js/angular-material.min.js',
+    'public/assets/js/lightgallery/lightgallery.min.js',
+    'public/assets/js/lightgallery/lg-thumbnail.min.js',
+    'public/assets/js/lightgallery/lg-fullscreen.min.js',
+    'public/assets/js/youtube.js'
 ];
 
 gulp.task('plugins', function () {
@@ -51,7 +51,7 @@ gulp.task('plugins', function () {
 gulp.task('all', ['scss', 'plugins', 'js.min']);
 
 gulp.task('watch', function(){
-    gulp.watch('assets/scss/**/*.scss', ['scss']);
+    gulp.watch('public/assets/scss/**/*.scss', ['scss']);
 });
 
 gulp.task('default', ['watch']);
