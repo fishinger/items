@@ -3,7 +3,8 @@ var app = angular.module('app', [
 		'ui.router',
 		'ngSanitize',
 		'ngResource',
-		'ngMaterial'
+		'ngMaterial',
+        'ngMessages'
 	]);
 //app.value('dpdConfig',['items']);
 // app.value('dpdConfig', { 
@@ -282,7 +283,7 @@ var users = [
     "endActive": 26
   }
 ]
-app.controller('mainCtrl', ["$scope", '$timeout', function($scope, $timeout){
+app.controller('mainCtrl', ["$scope", '$timeout', '$mdToast', function($scope, $timeout, $mdToast){
 	// $scope.message = model;
 	// $scope.update = function() {
 	// 	$scope.message = $scope.text;
@@ -308,22 +309,36 @@ app.controller('mainCtrl', ["$scope", '$timeout', function($scope, $timeout){
 		dpd.users.logout();
 		console.log('logout!');
 	}
+
+    $scope.showCustomToast = function() {
+        $mdToast.show({
+            hideDelay   : 3000,
+            position    : 'top right',
+            templateUrl : 'app/views/toast.html'
+        });
+        $mdToast.simple().textContent('Hello!')
+        //$mdToast.textContent('ssssss');
+    };
 }]);
 app.controller('loginCtrl', ['$scope', function($scope) {
-	$scope.login = function (user) {
-		console.log(dpd.users.me(console.log))
-		dpd.users.login({
-			username: user.username,
-			password: ''+user.password
-		}, function(res, err) {
-			if(err) {
-				return alert('Неверный логин или пароль')
-			}
-			console.log('Login success!');
-			console.log(res);
-		})
+	$scope.login = function (user, valid) {
+        if(valid) {
+            console.log(dpd.users.me(console.log))
+            dpd.users.login({
+                username: user.username,
+                password: ''+user.password
+            }, function(res, err) {
+                if(err) {
+                    return alert('Неверный логин или пароль')
+                }
+                console.log('Login success!');
+                console.log(res);
+            })
+        } else {
+            console.log('Form invalid')
+        }
 	}
-}])
+}]);
 function getActiveUser(date, day) {
 	var dayUser = {},
 		dayActive = date ? date : new Date(),

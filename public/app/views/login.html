@@ -1,16 +1,34 @@
-<div layout="column" class="md-inline-form" ng-controller="loginCtrl">
-    <form ng-submit="login(user)">
-        <md-input-container>
-            <label>username</label>
-            <input ng-model="user.username">
-        </md-input-container>
+<div class="md-inline-form window-center" ng-controller="loginCtrl">
+    <div class="form-center">
+        <form name="loginForm" ng-submit="login(user, loginForm.$valid)" novalidate>
+            <md-input-container class="md-block">
+                <label>username</label>
+                <input required name="username" ng-model="user.username">
+                <div ng-messages="loginForm.username.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
 
-        <md-input-container>
-            <label>Password</label>
-            <input ng-model="user.password" type="password">
-        </md-input-container>
-        <section layout="row" layout-sm="column" layout-wrap>
-            <md-button class="md-raised md-primary" type="submin">Logind</md-button>
-        </section>
-    </form>
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <input required name="password" ng-model="user.password" type="password">
+                <div ng-messages="loginForm.password.$error">
+                    <div ng-message="required">This is required.</div>
+                </div>
+            </md-input-container>
+            <section layout="row" layout-sm="column" class="flex-right" layout-wrap>
+                <md-button class="md-raised md-primary" type="submin">Logind</md-button>
+            </section>
+        </form>
+        <div>
+            <div class="inset" style="height:300px; padding: 25px;">
+                <div layout="row">
+                    <p> Toast can have multiple actions:</p>
+                    <md-button ng-click="showCustomToast()" class="md-raised" style="padding-left: 10px;padding-right: 10px;">
+                        Show Custom Toast
+                    </md-button>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
