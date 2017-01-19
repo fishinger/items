@@ -1,11 +1,18 @@
-<div class="md-inline-form window-center" ng-controller="loginCtrl">
+<div class="md-inline-form window-center" ng-controller="regCtrl">
     <div class="form-center">
-        <h1>Авторизация</h1>
-        <form name="loginForm" ng-submit="login(user, loginForm.$valid)" novalidate>
+        <h1>Регистрация</h1>
+        <form name="regForm" ng-submit="reg(user, regForm.$valid)" novalidate>
             <md-input-container class="md-block">
                 <label>Логин</label>
                 <input required name="username" ng-model="user.username">
-                <div ng-messages="loginForm.username.$error">
+                <div ng-messages="regForm.username.$error">
+                    <div ng-message="required">Заполните поле</div>
+                </div>
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Email</label>
+                <input required name="email" ng-model="user.email" type="email">
+                <div ng-messages="regForm.email.$error">
                     <div ng-message="required">Заполните поле</div>
                 </div>
             </md-input-container>
@@ -13,12 +20,12 @@
             <md-input-container class="md-block">
                 <label>Пароль</label>
                 <input required name="password" ng-model="user.password" type="password">
-                <div ng-messages="loginForm.password.$error">
+                <div ng-messages="regForm.password.$error">
                     <div ng-message="required">Заполните поле</div>
                 </div>
             </md-input-container>
             <section layout="row" layout-sm="column" class="flex-right" layout-wrap>
-                <md-button class="md-raised md-primary" type="submin">Войти</md-button>
+                <md-button class="md-raised md-primary" type="submin">Зарегистрироваться</md-button>
             </section>
         </form>
     </div>

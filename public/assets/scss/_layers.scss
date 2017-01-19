@@ -492,3 +492,18 @@ $nc7: #f8b26d;
     display: flex;
     justify-content: flex-end;
 }
+
+.toast {
+	&--error {
+		.md-toast-content {
+			background-color: $red;
+			color: white;
+		}
+	}
+	&--success {
+		.md-toast-content {
+			background-color: $green;
+			color: white;
+		}
+	}
+}
