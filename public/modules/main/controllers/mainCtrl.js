@@ -15,38 +15,41 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	$stateProvider
 		.state('home', {
 			url: '/',
-			templateUrl: 'app/views/main.html'
+			templateUrl: 'modules/main/views/main.html'
 		})
-		.state('rest', {
-			url: '/rest',
-			templateUrl: 'app/views/rest.html'
+		.state('items', {
+			url: '/items',
+			templateUrl: 'modules/items/views/items.html'
 		})
-		.state('login', {
-			url: '/login',
-			templateUrl: 'app/views/login.html'
-		})
-        .state('reg', {
-            url: '/reg',
-            templateUrl: 'app/views/reg.html'
-        })
-		.state('date', {
-			url: '/date',
-			templateUrl: 'app/views/date.html'
-		})
-		.state('edit', {
-			url: '/edit',
-			templateUrl: 'app/views/edit.html',
-			controller: function($scope) {
-				$scope.items = ['item1', 'item2', 'item3'];
-			}
-		})
-		.state('edit.item', {
-			url: '/:item',
-			templateUrl: 'app/views/edit.item.html',
+		.state('items.item', {
+			url: '/item',
+			templateUrl: 'modules/items/views/items.item.html',
 			controller: function($scope, $stateParams) {
 				$scope.name = $stateParams.item;
 			}
 		})
+		.state('login', {
+			url: '/login',
+			templateUrl: 'modules/auth/views/login.html'
+		})
+        .state('reg', {
+            url: '/reg',
+            templateUrl: 'modules/auth/views/reg.html'
+        })
+		// .state('edit', {
+		// 	url: '/edit',
+		// 	templateUrl: 'modules/items/views/edit.html',
+		// 	controller: function($scope) {
+		// 		$scope.items = ['item1', 'item2', 'item3'];
+		// 	}
+		// })
+		// .state('edit.item', {
+		// 	url: '/:item',
+		// 	templateUrl: 'modules/items/views/items.item.html',
+		// 	controller: function($scope, $stateParams) {
+		// 		$scope.name = $stateParams.item;
+		// 	}
+		// })
 })
 
 app.controller('mainCtrl', ["$scope", '$timeout', '$mdToast', function($scope, $timeout, $mdToast){
@@ -67,6 +70,7 @@ app.controller('mainCtrl', ["$scope", '$timeout', '$mdToast', function($scope, $
 	$scope.logout = function () {
 		dpd.users.logout();
 	}
+	$scope.itemss = ['item1', 'item2', 'item3'];
 }]);
 
 app.controller('toastCtrl', ['$scope', '$rootScope', function ($scope, $rootScope) {
