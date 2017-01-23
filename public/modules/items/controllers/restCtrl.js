@@ -1,9 +1,9 @@
 angular.module('app')
-.controller('restCtrl', ['$scope', '$http', 'baseUrl', '$resource', function($scope, $http, baseUrl, $resource) {
+.controller('restCtrl', ['$scope', '$rootScope', '$http', 'baseUrl', '$resource', 'itemFactory', '$mdToast', function($scope, $rootScope, $http, baseUrl, $resource, itemFactory, $mdToast) {
 	$scope.view = 'table';
 	$scope.itemResource = $resource(baseUrl + ':id', {id: '@id'});
 	$scope.refresh = function() {
-		$scope.items = $scope.itemResource.query();
+		$scope.items = itemFactory.getItems();
 	}
 
 	$scope.editOrCreate = function(item) {
@@ -20,7 +20,7 @@ angular.module('app')
 	}
 
 	$scope.update = function(item) {
-		item.$save().then(function(data) {
+		itemFactory.update(item).then(function(data) {
 			for(var i = 0; i < $scope.items.length; i++) {
 				if(data.id == $scope.items[i].id) {
 					$scope.items[i] = data;
@@ -31,21 +31,34 @@ angular.module('app')
 		});
 	}
 	$scope.create = function(item) {
-		/*
-		* new $scope.itemResource(item) - добавляет объекту спец. свойства resource ($save, $delete и т.д.)
-		*/
-		new $scope.itemResource(item).$save().then(function(data) {
+		itemFactory.create(item).then(function(data) {
 			$scope.items.push(data);
 			$scope.view = 'table';
-			console.log(data);
+
+            $rootScope.toastMessage = 'Элемент добавлен';
+            $mdToast.show({
+                hideDelay   : 3000,
+                position    : 'top right',
+                templateUrl : 'modules/views/toast.html',
+                toastClass: 'toast--success',
+                controller: 'toastCtrl'
+            });
         }, function(data) {
             console.log(data)
         })
 	}
 
 	$scope.delete = function(item) {
-		item.$delete().then(function() {
+		itemFactory.delete(item).then(function() {
 			_.pull($scope.items, item);
+            $rootScope.toastMessage = 'Элемент удален';
+            $mdToast.show({
+                hideDelay   : 3000,
+                position    : 'top right',
+                templateUrl : 'modules/views/toast.html',
+                toastClass: 'toast--success',
+                controller: 'toastCtrl'
+            });
 		})
 	}
 

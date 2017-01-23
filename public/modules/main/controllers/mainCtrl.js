@@ -22,11 +22,15 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 			templateUrl: 'modules/items/views/items.html'
 		})
 		.state('items.item', {
-			url: '/item',
-			templateUrl: 'modules/items/views/items.item.html',
-			controller: function($scope, $stateParams) {
-				$scope.name = $stateParams.item;
-			}
+			url: '/:item',
+            views: {
+                '@': {
+                    templateUrl: 'modules/items/views/items.item.html',
+                    controller: function($scope, $stateParams) {
+                        $scope.name = $stateParams.item;
+                    }
+                }
+            }
 		})
 		.state('login', {
 			url: '/login',
@@ -36,20 +40,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
             url: '/reg',
             templateUrl: 'modules/auth/views/reg.html'
         })
-		// .state('edit', {
-		// 	url: '/edit',
-		// 	templateUrl: 'modules/items/views/edit.html',
-		// 	controller: function($scope) {
-		// 		$scope.items = ['item1', 'item2', 'item3'];
-		// 	}
-		// })
-		// .state('edit.item', {
-		// 	url: '/:item',
-		// 	templateUrl: 'modules/items/views/items.item.html',
-		// 	controller: function($scope, $stateParams) {
-		// 		$scope.name = $stateParams.item;
-		// 	}
-		// })
 })
 
 app.controller('mainCtrl', ["$scope", '$timeout', '$mdToast', function($scope, $timeout, $mdToast){
@@ -90,7 +80,7 @@ app.controller('loginCtrl', ['$scope', '$rootScope', '$mdToast', '$location', fu
                     $mdToast.show({
                         hideDelay   : 3000,
                         position    : 'top right',
-                        templateUrl : 'app/views/toast.html',
+                        templateUrl : 'modules/views/toast.html',
                         toastClass: 'toast--error',
                         controller: 'toastCtrl'
                     });
@@ -100,7 +90,7 @@ app.controller('loginCtrl', ['$scope', '$rootScope', '$mdToast', '$location', fu
                 $mdToast.show({
                     hideDelay   : 3000,
                     position    : 'top right',
-                    templateUrl : 'app/views/toast.html',
+                    templateUrl : 'modules/views/toast.html',
                     toastClass: 'toast--success',
                     controller: 'toastCtrl'
                 });
@@ -119,7 +109,7 @@ app.controller('regCtrl', ['$scope', '$rootScope', '$mdToast', '$location', '$re
                 $mdToast.show({
                     hideDelay   : 3000,
                     position    : 'top right',
-                    templateUrl : 'app/views/toast.html',
+                    templateUrl : 'modules/views/toast.html',
                     toastClass: 'toast--success',
                     controller: 'toastCtrl'
                 });
