@@ -1,7 +1,6 @@
 angular.module('app')
-.controller('restCtrl', ['$scope', '$rootScope', '$http', 'baseUrl', '$resource', 'itemFactory', '$mdToast', function($scope, $rootScope, $http, baseUrl, $resource, itemFactory, $mdToast) {
+.controller('restCtrl', ['$scope', '$rootScope', '$http', 'baseUrl', 'itemFactory', '$mdToast', function($scope, $rootScope, $http, baseUrl, itemFactory, $mdToast) {
 	$scope.view = 'table';
-	$scope.itemResource = $resource(baseUrl + ':id', {id: '@id'});
 	$scope.refresh = function() {
 		$scope.items = itemFactory.getItems();
 	}
@@ -39,7 +38,7 @@ angular.module('app')
             $mdToast.show({
                 hideDelay   : 3000,
                 position    : 'top right',
-                templateUrl : 'modules/views/toast.html',
+                templateUrl : 'modules/mdToast/views/toast.html',
                 toastClass: 'toast--success',
                 controller: 'toastCtrl'
             });
@@ -55,7 +54,7 @@ angular.module('app')
             $mdToast.show({
                 hideDelay   : 3000,
                 position    : 'top right',
-                templateUrl : 'modules/views/toast.html',
+                templateUrl : 'modules/mdToast/views/toast.html',
                 toastClass: 'toast--success',
                 controller: 'toastCtrl'
             });
