@@ -24,6 +24,7 @@
     "pump": "^1.0.1"
   },
   "dependencies": {
-    "deployd": "^0.8.9"
+    "deployd": "^0.8.9",
+    "dpd-email": "^0.3.0"
   }
 }
