@@ -77,7 +77,18 @@ dpd.listen();
 
 dpd.on('listening', function() {
   console.log("Server is listening");
+
 });
+
+// dpd.items.on('create', function(message) {
+//   console.log('create!!!!!!!!!');
+// });
+// dpd.socketReady(function() {
+//   console.log('sddfdfdf')
+// });
+// dpd.items.once('create', function(post) {
+//   console.log('create!!!!!!!!!');
+// });
 
 dpd.on('error', function(err) {
   console.error(err);
@@ -85,10 +96,36 @@ dpd.on('error', function(err) {
     process.exit();
   });
 });
+
+
 // dpd.on('todos:create', function(post) {
 //   console.log(post)
 // });
 // dpd.on('items:create', function(post) {
 //   // Do something
 //   console.log(post)
+// });
+
+
+
+//var mailOptions, transporter;
+//var nodemailer = require('nodemailer');
+// transporter = nodemailer.createTransport({
+//   service: 'Gmail',
+//   auth: {
+//     user: 'pavel45888@gmail.com',
+//     pass: '27041963elgoog'
+//   }
+// });
+// mailOptions = {
+//   from: 'Pavel <pavel45888@gmail.com>',
+//   to: 'krilovpavel@mail.ru',
+//   subject: 'Hello',
+//   html: '<b>test</b>'
+// };
+// transporter.sendMail(mailOptions, function(err, info) {
+//   if (err) {
+//     return console.log(err);
+//   }
+//   return console.log("Message sent: " + info.response);
 // });

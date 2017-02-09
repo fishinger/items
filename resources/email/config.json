@@ -1,0 +1,12 @@
+{
+	"type": "Email",
+	"host": "smtp.mail.ru",
+	"port": "465",
+	"ssl": true,
+	"username": "krilovpavel@mail.ru",
+	"password": "7100162ljv",
+	"defaultFromAddress": "krilovpavel@mail.ru",
+	"internalOnly": false,
+	"productionOnly": false,
+	"base64": false
+}

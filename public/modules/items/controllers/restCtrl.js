@@ -82,4 +82,16 @@ angular.module('app')
 		console.log('delete!!!!!!!!!');
 		$scope.refresh();
 	});
+	dpd.email.post({
+		to      : 'krylov@internet-design.ru',
+		subject : 'MyApp registration',
+		text    : [
+			"Pavel",
+			'',
+			'Thank you for registering for MyApp!'
+		].join('\n')
+	}, function ( err, results ) {
+		console.log('err', err);
+		console.log('results', results);
+	});
 }])
