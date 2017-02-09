@@ -83,7 +83,7 @@ angular.module('app')
 		$scope.refresh();
 	});
 	dpd.email.post({
-		to      : 'krylov@internet-design.ru',
+		to      : 'krilovpavel@mail.ru',
 		subject : 'MyApp registration',
 		text    : [
 			"Pavel",
