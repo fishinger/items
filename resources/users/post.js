@@ -1,0 +1,1 @@
+emit('reg', this);
