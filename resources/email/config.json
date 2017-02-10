@@ -1,11 +1,11 @@
 {
 	"type": "Email",
-	"host": "smtp.mail.ru",
+	"host": "smtp.yandex.ru",
 	"port": "465",
 	"ssl": true,
-	"username": "krilovpavel@mail.ru",
-	"password": "7100162ljv",
-	"defaultFromAddress": "krilovpavel@mail.ru",
+	"username": "crilov.pasha@yandex.ru",
+	"password": "27041963xed",
+	"defaultFromAddress": "crilov.pasha@yandex.ru",
 	"internalOnly": false,
 	"productionOnly": false,
 	"base64": false
