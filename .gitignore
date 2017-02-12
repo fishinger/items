@@ -1,5 +1,4 @@
-/node_modules/*
-!/node_modules/dpd-email/index.js
+node_modules
 .sass-cache
 .idea
 itemsApp
