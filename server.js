@@ -1,10 +1,10 @@
+// production.js
 var deployd = require('deployd');
 var request = require('request');
 var mailOptions, transporter;
 var nodemailer = require('nodemailer');
 var io = require('socket.io-client');
 var socket = io.connect('http://localhost:5000');
-
 
 var dpd = deployd({
   port: process.env.PORT || 5000,
@@ -27,6 +27,20 @@ dpd.on('error', function(err) {
     process.exit();
   });
 });
+
+
+
+
+
+transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: 'pavel45888@gmail.com',
+    pass: '27041963elgoog'
+  }
+});
+
+
 
 //создаем коллекцию
 function Collection(url) {
@@ -52,29 +66,19 @@ c.request({url: '?done=false'}, function(err, todos) {
   //console.log(todos); // [...]
 });
 
-/*
-* почта
-* */
-transporter = nodemailer.createTransport({
-  service: 'Gmail',
-  auth: {
-    user: 'pavel45888@gmail.com',
-    pass: '27041963elgoog'
-  }
-});
 //ловим событие регистрации и отправляем почту
 socket.on('reg', function (data) {
   console.log(data.email); // emit()ed from the server
-  // mailOptions = {
-  //   from: 'Pavel',
-  //   to: data.email,
-  //   subject: 'Hello',
-  //   html: '<b>test</b>'
-  // };
-  // transporter.sendMail(mailOptions, function(err, info) {
-  //   if (err) {
-  //     return console.log(err);
-  //   }
-  //   return console.log("Message sent: " + info.response);
-  // });
+  mailOptions = {
+    from: 'Pavel',
+    to: data.email,
+    subject: 'Hello',
+    html: '<b>test</b>'
+  };
+  transporter.sendMail(mailOptions, function(err, info) {
+    if (err) {
+      return console.log(err);
+    }
+    return console.log("Message sent: " + info.response);
+   });
 });
