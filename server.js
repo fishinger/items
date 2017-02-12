@@ -1,10 +1,7 @@
+
 // production.js
 var deployd = require('deployd');
 var request = require('request');
-var mailOptions, transporter;
-var nodemailer = require('nodemailer');
-var io = require('socket.io-client');
-var socket = io.connect('http://localhost:5000');
 
 var dpd = deployd({
   port: process.env.PORT || 5000,
@@ -31,7 +28,8 @@ dpd.on('error', function(err) {
 
 
 
-
+var mailOptions, transporter;
+var nodemailer = require('nodemailer');
 transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
@@ -65,6 +63,9 @@ var c = new Collection('http://localhost:5000/items');
 c.request({url: '?done=false'}, function(err, todos) {
   //console.log(todos); // [...]
 });
+
+var io = require('socket.io-client');
+var socket = io.connect('http://localhost:5000');
 
 //ловим событие регистрации и отправляем почту
 socket.on('reg', function (data) {
