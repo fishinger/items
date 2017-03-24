@@ -34,7 +34,16 @@ $(document).ready(function() {
   setTimeout(function(){
     console.log('test');
     $(".l-gallery").lightGallery();
-    $('#fullpage').fullpage();
+    $('#fullpage').fullpage({
+      //anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+      menu: '.menu'
+    });
+    var clock = $('.your-clock').FlipClock(3600 * 24 * 3, {
+      countdown: true,
+      showSeconds: false,
+      clockFace: 'DailyCounter',
+      language: 'ru'
+    });
   }, 500)
     
 });
