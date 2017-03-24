@@ -36,8 +36,7 @@ var pluginsJS = [
     'public/assets/js/angular-material.min.js',
     'public/assets/js/lightgallery/lightgallery.min.js',
     'public/assets/js/lightgallery/lg-thumbnail.min.js',
-    'public/assets/js/lightgallery/lg-fullscreen.min.js',
-    'public/assets/js/youtube.js'
+    'public/assets/js/lightgallery/lg-fullscreen.min.js'
 ];
 
 gulp.task('plugins', function () {

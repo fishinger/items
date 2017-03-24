@@ -15,7 +15,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
 	$stateProvider
 		.state('home', {
 			url: '/',
-			templateUrl: 'modules/main/views/main.html'
+			templateUrl: 'modules/wedding/views/wedding.html'
 		})
 		.state('items', {
 			url: '/items',

@@ -12,24 +12,13 @@
 	}
 }
 
-html{
-}
 body {
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
 
-body {
+	position: relative;
 	font-size: 16px;
 	font-family: $philos;
 	font-weight: 400;
 	color: #6B6A6A;
-	overflow-x: hidden;
-	display: flex;
-	flex-direction: column;
-	background: rgb(244, 244, 244);
 }
 .container{
 	min-width: 280px;

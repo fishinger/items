@@ -14,33 +14,13 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 	<script type="text/javascript" src="dpd.js"></script>
 </head>
-<body ng-controller='mainCtrl' ng-cloak>
-	<div class="mobile-top">
-	<md-button class="md-icon-button" aria-label="menu" ng-click='toggleAside()'>
-		<md-icon md-svg-icon="/assets/img/icons/menu.svg" class='fill-white'></md-icon>
-	</md-button>
-	</div>
-	<div class="aside" ng-click='toggleAside()' ng-class="{'aside--active': statusAside}">
-		<a href="#" class="logo aside__logo">
-			<img src="/assets/img/official/logo.jpg" alt="" class="logo__img">
-		</a>
-		<div class="nav aside__nav">
-			<div class="nav__item nc1" ui-sref-active='active'><a href="" ui-sref='home' class="nav__name">Home</a></div>
-			<div class="nav__item nc2" ui-sref-active='active'><a href="" ui-sref='items' class="nav__name">Items</a></div>
-			<div class="nav__item nc3" ui-sref-active='active'><a href="" ui-sref='edit' class="nav__name">Edit</a></div>
-			<div class="nav__item nc4" ui-sref-active='active'><a href="" ui-sref='date' class="nav__name">Date</a></div>
-			<div class="nav__item nc4" ui-sref-active='active'><a href="" ui-sref='login' class="nav__name">Login</a></div>
-			<div class="nav__item nc4" ui-sref-active='active'><a href="" ui-sref='reg' class="nav__name">Registr</a></div>
-			<div class="nav__item nc4" ui-sref-active='active'><span class="nav__name" ng-click="logout()">Logout</span></div>
-		</div>
-		<div class="aside__contacts">follow us</div>
-	</div>
-	<div class="all" ng-click='closeAside()' ui-view ng-class="{'all--disabled': statusAside}"></div>
+<body ng-controller='mainCtrl' ng-cloak ui-view>
+
+
 
 
 	<script type="text/javascript" src="assets/_plugins-all.min.js"></script>
 	<script type="text/javascript" src="modules/main/controllers/mainCtrl.js"></script>
-	<script type="text/javascript" src="https://cdn.rawgit.com/alexgibson/shake.js/master/shake.js">
     <script type="text/javascript" src="assets/js/url/url.js"></script>
     <script type="text/javascript" src="modules/mdToast/controllers/toastCtrl.js"></script>
     <script type="text/javascript" src="modules/items/factories/itemFactory.js"></script>
@@ -49,5 +29,9 @@
 	<script type="text/javascript" src="modules/auth/controllers/loginCtrl.js"></script>
 	<script type="text/javascript" src="modules/auth/controllers/regCtrl.js"></script>
 	<script type="text/javascript" src="modules/ps/controllers/psCtrl.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.easings.min.js"></script>
+	<script type="text/javascript" src="assets/js/scrolloverflow.min.js"></script>
+	<script type="text/javascript" src="assets/js/jquery.fullPage.min.js"></script>
+	<script type="text/javascript" src="assets/js/youtube.js"></script>
 </body>
 </html>

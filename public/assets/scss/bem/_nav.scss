@@ -1,0 +1,109 @@
+$nc1: #3c448d;
+$nc2: #724f8a;
+$nc3: #93548b;
+$nc4: #b65b8d;
+$nc5: #e8707f;
+$nc6: #e67261;
+$nc7: #f8b26d;
+.nav {
+    &__item {
+        display: block;
+        text-decoration: none;
+        position: relative;
+        font-size: 34px;
+        color: rgb(59, 66, 148);
+        font-weight: bold;
+        margin-bottom: 10px;
+        padding-left: 27px;
+        line-height: 1;
+        &.active {
+            &.nc1 {
+                &:before{
+                    background: $nc1;
+                }
+            }
+            &.nc2 {
+                &:before{
+                    background: $nc2;
+                }
+            }
+            &.nc3 {
+                &:before{
+                    background: $nc3;
+                }
+            }
+            &.nc4 {
+                &:before{
+                    background: $nc4;
+                }
+            }
+        }
+        &.nc1 {
+            .nav__name {
+                color: $nc1;
+                &:hover{
+                    color: #2232c5;
+                }
+            }
+            &:before{
+                border-color: $nc1;
+            }
+        }
+        &.nc2 {
+            .nav__name {
+                color: $nc2;
+                &:hover{
+                    color: #8d2ed0;
+                }
+            }
+            &:before{
+                border-color: $nc2;
+            }
+        }
+        &.nc3 {
+            .nav__name {
+                color: $nc3;
+                &:hover{
+                    color: #da51c9;
+                }
+            }
+            &:before{
+                border-color: $nc3;
+            }
+        }
+        &.nc4 {
+            .nav__name {
+                color: $nc4;
+                &:hover{
+                    color: #d40c7a;
+                }
+            }
+            &:before{
+                border-color: $nc4;
+            }
+        }
+
+        &:before{
+            content: '';
+            position: absolute;
+            top: 50%;
+            margin-top: -3px;
+            left: 0;
+            display: block;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            border: 2px solid green;
+        }
+    }
+    &__name {
+        position: relative;
+        opacity: 0;
+        visibility: hidden;
+        transition: all .2s ease-in-out;
+        text-decoration: none;
+        &:hover{
+            text-decoration: none;
+        }
+    }
+}

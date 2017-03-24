@@ -32,7 +32,9 @@ function onPlayerReady(event) {
 
 $(document).ready(function() {
   setTimeout(function(){
-    $(".l-gallery").lightGallery(); 
+    console.log('test');
+    $(".l-gallery").lightGallery();
+    $('#fullpage').fullpage();
   }, 500)
     
 });
