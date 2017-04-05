@@ -4,7 +4,7 @@ var deployd = require('deployd');
 var request = require('request');
 
 var dpd = deployd({
-  port: process.env.PORT || 5000,
+  port: process.env.PORT || 80,
   env: process.env.ENVIRONMENT || 'development',
   db: {
     connectionString: 'mongodb://localhost:27017/items'
