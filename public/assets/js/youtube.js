@@ -38,12 +38,19 @@ $(document).ready(function() {
       //anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
       menu: '.menu'
     });
-    var clock = $('.your-clock').FlipClock(3600 * 24 * 3, {
+
+    var targetDate = new Date(2017, 6, 31), //Дата до которой нужен таймер
+        nowDate = Date.now(), //Текущая дата и время в мил. секундах
+        time = (targetDate - nowDate) / 1000; //Получаем секунды
+
+    //console.log(dateWeddeng.getFullYear(), dateWeddeng.getMonth(), dateWeddeng.getDate(), dateTotal);
+    var clock = $('.your-clock').FlipClock(time, {
       countdown: true,
       showSeconds: false,
       clockFace: 'DailyCounter',
       language: 'ru'
     });
-  }, 500)
+
+  }, 500);
     
 });
