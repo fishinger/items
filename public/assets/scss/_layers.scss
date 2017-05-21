@@ -469,10 +469,32 @@ form {
 		background: #1bbc9b;
 	}
 	&--3 {
-		background: dimgray;
+		background-color: rgb(75, 191, 195);
+		.fp-tableCell {
+			position: relative;
+			vertical-align: top;
+			padding-top: 71px;
+		}
+		.contact-map {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 400px;
+		}
 	}
 	&--4 {
 		background: blueviolet;
+		position: relative;
+		.last-name {
+			position: absolute;
+			bottom: 40px;
+			width: 100%;
+			text-align: center;
+			color: white;
+			font-size: 50px;
+			font-family: $adine;
+		}
 	}
 }
 .main-content {
@@ -540,6 +562,17 @@ form {
 	font-size: 80px;
 	margin-bottom: 80px;
 	font-family: $andantino;
+	.section--3 & {
+		color: #444;
+		font-size: 70px;
+		margin-bottom: 30px;
+	}
+	.section--4 & {
+		font-family: $adine;
+		font-size: 86px;
+		padding: 0 15px;
+		line-height: 72px;
+	}
 }
 
 .timeline {
@@ -619,5 +652,15 @@ form {
 	&__like {
 		margin-top: 8px;
 		display: inline-block;
+	}
+}
+.contact-text {
+	max-width: 720px;
+	margin: auto;
+	p{
+		color: #444;
+		font-size: 24px;
+		line-height: 30px;
+		margin-bottom: 15px;
 	}
 }

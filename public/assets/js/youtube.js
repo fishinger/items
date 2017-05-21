@@ -52,5 +52,29 @@ $(document).ready(function() {
     });
 
   }, 500);
+  ymaps.ready(function () {
+    var myMap = new ymaps.Map('map', {
+          center: [56.006653, 37.172782],
+          controls: ['zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl'],
+          zoom: 13
+        }, {
+          searchControlProvider: 'yandex#search'
+        }),
+
+    // Создаём макет содержимого.
+      myPlacemarkWithContent = new ymaps.Placemark([55.995300, 37.243494], {
+        hintContent: 'Венчание',
+        balloonContent: 'Венчание'
+      });
+    myPlacemarkBanket = new ymaps.Placemark([56.017096, 37.127818], {
+      hintContent: 'Торжественный банкет',
+      balloonContent: 'Торжественный банкет'
+    });
+
+    myMap.behaviors.disable('scrollZoom');
+    myMap.geoObjects
+        .add(myPlacemarkBanket)
+        .add(myPlacemarkWithContent);
+  });
     
 });
