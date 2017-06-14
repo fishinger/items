@@ -491,6 +491,21 @@ form {
 	}
 	&--2 {
 		background: #1bbc9b;
+		.page-link-wrap {
+			@media screen and($md){
+				padding-bottom: 80px;
+				padding-left: 10px;
+				padding-right: 10px;
+			}
+		}
+		.page-title {
+			@media screen and($sm){
+				padding-top: 25px;
+			}
+			@media screen and($md){
+				padding-top: 50px;
+			}
+		}
 	}
 	&--3 {
 		background-color: rgb(75, 191, 195);
@@ -498,6 +513,9 @@ form {
 			position: relative;
 			vertical-align: top;
 			padding-top: 71px;
+			@media screen and($xs){
+				padding-top: 0;
+			}
 		}
 		.contact-map {
 			position: absolute;
@@ -505,8 +523,8 @@ form {
 			left: 0;
 			right: 0;
 			height: 350px;
-			@media screen and (max-width: ){
-
+			@media screen and($sm){
+				position: static;
 			}
 		}
 	}
@@ -521,6 +539,9 @@ form {
 			color: white;
 			font-size: 50px;
 			font-family: $adine;
+			@media screen and($xs){
+				font-size: 38px;
+			}
 		}
 	}
 }
@@ -619,6 +640,11 @@ form {
 		color: #444;
 		font-size: 70px;
 		margin-bottom: 30px;
+		@media screen and($xs){
+			font-size: 36px;
+			margin-bottom: 15px;
+			padding-top: 50px;
+		}
 	}
 	.section--4 & {
 		font-family: $adine;
@@ -628,6 +654,10 @@ form {
 		@media screen and($md){
 			font-size: 67px;
 			line-height: 65px;
+		}
+		@media screen and($xs){
+			font-size: 45px;
+			line-height: 42px;
 		}
 	}
 	@media screen and($md){
@@ -731,29 +761,26 @@ form {
 	padding-bottom: 1px;
 	border-bottom: 1px solid rgba(255,255,255,.8);
 	transition: all .3s;
-	display: inline-block;
-	vertical-align: top;
-	@media screen and($xs){
-		display: block;
-		border: none;
-		margin-bottom: 10px;
-	}
 	&:hover {
 		text-decoration: none;
 		border-bottom-color: transparent;
 	}
 	&--sub {
-		margin-top: 8px;
 		font-size: 18px;
 	}
-	&__like {
-		margin-top: 8px;
-		display: inline-block;
+	@media screen and($xs){
+	 	font-size: 18px;
+	}
+}
+.page-link-item {
+	margin-top: 8px;
+	@media screen and($xs){
+		margin-top: 15px;
 	}
 }
 .contact-text {
 	max-width: 803px;
-	margin: auto;
+	margin: auto auto 30px;
 	padding: 0 20px;
 	p{
 		color: #444;
@@ -764,6 +791,10 @@ form {
 			font-size: 19px;
 			line-height: 27px;
 			margin-bottom: 7px;
+		}
+		@media screen and($xs){
+			font-size: 16px;
+			line-height: 20px;
 		}
 	}
 }

@@ -36,7 +36,11 @@ $(document).ready(function() {
     $(".l-gallery").lightGallery();
     $('#fullpage').fullpage({
       //anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
-      menu: '.menu'
+      menu: '.menu',
+      autoScrolling: true,
+      normalScrollElements: '#map',
+      //offsetSections: true,
+      scrollOverflow: true
     });
 
     var targetDate = new Date(2017, 6, 31), //Дата до которой нужен таймер
@@ -52,11 +56,17 @@ $(document).ready(function() {
     });
 
   }, 500);
+  var mapZoom;
+  if($(window).width() < 800) {
+    mapZoom = 11;
+  } else {
+    mapZoom = 13;
+  }
   ymaps.ready(function () {
     var myMap = new ymaps.Map('map', {
           center: [56.006653, 37.172782],
           controls: ['zoomControl', 'searchControl', 'typeSelector',  'fullscreenControl'],
-          zoom: 13
+          zoom: mapZoom
         }, {
           searchControlProvider: 'yandex#search'
         }),
