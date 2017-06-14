@@ -633,7 +633,7 @@ form {
 .page-title {
 	text-align: center;
 	color: white;
-	font-size: 80px;
+	font-size: 70px;
 	margin-bottom: 80px;
 	font-family: $andantino;
 	.section--3 & {
@@ -767,13 +767,14 @@ form {
 	}
 	&--sub {
 		font-size: 18px;
+		border: none;
 	}
 	@media screen and($xs){
 	 	font-size: 18px;
 	}
 }
 .page-link-item {
-	margin-top: 8px;
+	margin-top: 13px;
 	@media screen and($xs){
 		margin-top: 15px;
 	}

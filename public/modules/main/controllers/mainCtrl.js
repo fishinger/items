@@ -42,7 +42,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider){
         })
 })
 
-app.controller('mainCtrl', ["$scope", function($scope){
+app.controller('mainCtrl', ["$scope", "$mdDialog", function($scope, $mdDialog){
 	$scope.statusAside = false;
 	$scope.toggleAside = function() {
 		$scope.statusAside = !$scope.statusAside;
@@ -55,4 +55,28 @@ app.controller('mainCtrl', ["$scope", function($scope){
 	$scope.logout = function () {
 		dpd.users.logout();
 	}
+
+	$scope.showAlert = function(ev) {
+		$mdDialog.show(
+			$mdDialog.alert()
+				.parent(angular.element(document.querySelector('#popupContainer')))
+				.clickOutsideToClose(true)
+				.title('This is an alert title')
+				.textContent('You can specify some description text in here.')
+				.ariaLabel('Alert Dialog Demo')
+				.ok('Got it!')
+				.targetEvent(ev)
+		);
+	};
+	$scope.showPrerenderedDialog = function(ev) {
+		$mdDialog.show({
+			contentElement: '#myDialog',
+			parent: angular.element(document.body),
+			targetEvent: ev,
+			clickOutsideToClose: true
+		});
+	};
+	$scope.closeDialog = function() {
+		$mdDialog.hide();
+	};
 }]);

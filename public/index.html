@@ -23,6 +23,28 @@
 	<li data-menuanchor="fourthPage" class="menu__item"><a href="#fourthPage" class="menu__link">До встречи</a></li>
 </ul>
 <ui-view></ui-view>
+<div style="visibility: hidden">
+	<div class="md-dialog-container" id="myDialog">
+		<md-dialog layout-padding>
+			<md-dialog-content>
+				<h2>Правила поведения на загородной площадке, арендованной
+					для торжественного банкета</h2>
+				<br>
+				<p>
+					This is a pre-rendered dialog, which means that <code>$mdDialog</code> doesn't compile its
+					template on each opening.
+					<br/><br/>
+					The Dialog Element is a static element in the DOM, which is just visually hidden.<br/>
+					Once the dialog opens, we just fetch the element from the DOM into our dialog and upon close
+					we restore the element back into its old DOM position.
+				</p>
+			</md-dialog-content>
+			<md-dialog-actions>
+				<md-button ng-click="closeDialog()" class="md-primary">Close Dialog</md-button>
+			</md-dialog-actions>
+		</md-dialog>
+	</div>
+</div>
 
 
 
