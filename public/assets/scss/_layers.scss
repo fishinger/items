@@ -875,3 +875,9 @@ form {
 		list-style-type: decimal;
 	}
 }
+#fullpage {
+	transition: all .3s;
+}
+.blockHide {
+	opacity: 0;
+}

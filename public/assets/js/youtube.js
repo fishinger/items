@@ -19,28 +19,18 @@ function onPlayerReady(event) {
   //event.target.playVideo();
 }
 
-// $(document).ready(function() {
-//   setTimeout(function(){
-//     $('.section-info__text').on('click', function () {
-      
-         
-        
-//     });
-//   }, 500)
-  
-// })
-
 $(document).ready(function() {
   setTimeout(function(){
     console.log('test');
     $(".l-gallery").lightGallery();
     $('#fullpage').fullpage({
-      //anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fivePage', 'lastPage'],
       menu: '.menu',
       autoScrolling: true,
       normalScrollElements: '#map, #dialogContent_1, #dialogContent_0',
-      //offsetSections: true,
-      scrollOverflow: true
+      scrollOverflow: true,
+      afterLoad: function(anchorLink, index){
+        $('#fullpage').removeClass('blockHide');
+      }
     });
 
     var targetDate = new Date(2017, 6, 31), //Дата до которой нужен таймер
