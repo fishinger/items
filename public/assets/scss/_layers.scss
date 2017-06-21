@@ -466,8 +466,12 @@ form {
 			line-height: 36px;
 			border-radius: 0;
 		}
+		@media screen and(max-width: 400px){
+			font-size: 12px;
+		}
 		@media screen and(max-width: 360px){
 			padding: 0 6px;
+			font-size: 12px;
 		}
 	}
 }
@@ -529,6 +533,9 @@ form {
 		}
 	}
 	&--4 {
+		background-color: #eeeeee;
+	}
+	&--5 {
 		background: blueviolet;
 		position: relative;
 		.last-name {
@@ -646,7 +653,7 @@ form {
 			padding-top: 50px;
 		}
 	}
-	.section--4 & {
+	.section--5 & {
 		font-family: $adine;
 		font-size: 86px;
 		padding: 0 15px;
@@ -797,5 +804,74 @@ form {
 			font-size: 16px;
 			line-height: 20px;
 		}
+	}
+}
+.big-text {
+	font-size: 30px;
+	line-height: 40px;
+	margin-bottom: 40px;
+	text-align: center;
+	@media screen and($xs){
+		font-size: 20px;
+		line-height: 27px;
+		margin-bottom: 25px;
+	}
+}
+.hashtag {
+	font-size: 27px;
+	font-weight: bold;
+	@media screen and($xs){
+		font-size: 25px;
+	}
+}
+.link-prize {
+	margin-top: 90px;
+	text-align: center;
+	@media screen and($xs){
+		margin-top: 40px;
+	}
+	a {
+		text-decoration: none;
+		color: royalblue;
+		font-size: 30px;
+		line-height: 40px;
+		transition: all .3s;
+		border-bottom: 1px solid #86a2f1;
+		&:hover {
+			text-decoration: none;
+			border-bottom-color: transparent;
+		}
+		@media screen and($xs){
+			font-size: 20px;
+			line-height: 27px;
+		}
+	}
+}
+.section-content {
+	max-width: 1030px;
+	margin: auto;
+	padding: 15px;
+}
+.md-dialog-content {
+	h2 {
+		margin-bottom: 15px;
+		font-size: 25px;
+	}
+	P {
+		font-size: 24px;
+	}
+}
+.md-dialog-container {
+	h2 {
+		margin-bottom: 15px;
+	}
+	ol {
+		padding-left: 20px;
+	}
+	li {
+		font-size: 18px;
+		line-height: 22px;
+		margin-bottom: 7px;
+		list-style-type: decimal;
 	}
 }

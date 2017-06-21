@@ -61,10 +61,10 @@ app.controller('mainCtrl', ["$scope", "$mdDialog", function($scope, $mdDialog){
 			$mdDialog.alert()
 				.parent(angular.element(document.querySelector('#popupContainer')))
 				.clickOutsideToClose(true)
-				.title('This is an alert title')
-				.textContent('You can specify some description text in here.')
+				.title('')
+				.textContent('Просто подарите деньги, мы будем очень рады :)')
 				.ariaLabel('Alert Dialog Demo')
-				.ok('Got it!')
+				.ok('Ok!')
 				.targetEvent(ev)
 		);
 	};

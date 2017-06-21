@@ -35,10 +35,10 @@ $(document).ready(function() {
     console.log('test');
     $(".l-gallery").lightGallery();
     $('#fullpage').fullpage({
-      //anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'lastPage'],
+      //anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fivePage', 'lastPage'],
       menu: '.menu',
       autoScrolling: true,
-      normalScrollElements: '#map',
+      normalScrollElements: '#map, #dialogContent_1, #dialogContent_0',
       //offsetSections: true,
       scrollOverflow: true
     });
