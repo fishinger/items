@@ -26,7 +26,7 @@ $(document).ready(function() {
     $('#fullpage').fullpage({
       menu: '.menu',
       autoScrolling: true,
-      normalScrollElements: '#map, #dialogContent_1, #dialogContent_0',
+      normalScrollElements: '#map, md-dialog-content',
       scrollOverflow: true,
       afterLoad: function(anchorLink, index){
         $('#fullpage').removeClass('blockHide');
